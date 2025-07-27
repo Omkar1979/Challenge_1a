@@ -1,0 +1,250 @@
+{
+  "title": "first.pdf",
+  "outline": [
+    {
+      "level": "H1",
+      "text": "The Lake Pend Oreille Aquatic",
+      "page": 1
+    },
+    {
+      "level": "H3",
+      "text": "Tyler Wagner  and C. Michael Falter",
+      "page": 1
+    },
+    {
+      "level": "H2",
+      "text": "Abstract",
+      "page": 2
+    },
+    {
+      "level": "H2",
+      "text": "Table Contents",
+      "page": 3
+    },
+    {
+      "level": "H2",
+      "text": "List of Tables",
+      "page": 4
+    },
+    {
+      "level": "H3",
+      "text": "Depth  (m)  as  a  predictor  of  substrate  particle  size  class  (  /3 0  and  /3 1  x  are",
+      "page": 5
+    },
+    {
+      "level": "H2",
+      "text": "List of Figures",
+      "page": 6
+    },
+    {
+      "level": "H2",
+      "text": "Introduction",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "Site Description",
+      "page": 12
+    },
+    {
+      "level": "H3",
+      "text": "Lake Morphometry",
+      "page": 12
+    },
+    {
+      "level": "H3",
+      "text": "History of Winter Lake Drawdowns on Lake Pend Oreille",
+      "page": 14
+    },
+    {
+      "level": "H2",
+      "text": "Materials and Methods",
+      "page": 15
+    },
+    {
+      "level": "H3",
+      "text": "SamJ.!le Stations",
+      "page": 15
+    },
+    {
+      "level": "H2",
+      "text": "Sediment and Water Physico-Chemistry",
+      "page": 15
+    },
+    {
+      "level": "H3",
+      "text": "Sediment",
+      "page": 15
+    },
+    {
+      "level": "H3",
+      "text": "Water Column Physico-Chemistry",
+      "page": 16
+    },
+    {
+      "level": "H2",
+      "text": "Aquatic Macrophyte Collection and Laboratory",
+      "page": 16
+    },
+    {
+      "level": "H3",
+      "text": "Substrate Coml!osition Data Collection",
+      "page": 18
+    },
+    {
+      "level": "H2",
+      "text": "Statistical Analysis",
+      "page": 18
+    },
+    {
+      "level": "H3",
+      "text": "Sediment",
+      "page": 18
+    },
+    {
+      "level": "H2",
+      "text": "Percent dominance = (r'N )x 100",
+      "page": 19
+    },
+    {
+      "level": "H1",
+      "text": "Kulczynski's Index of Dissimilarity: Djk = 1-(;(:  +  ;  )J",
+      "page": 21
+    },
+    {
+      "level": "H3",
+      "text": "where /3",
+      "page": 22
+    },
+    {
+      "level": "H3",
+      "text": "/3",
+      "page": 22
+    },
+    {
+      "level": "H3",
+      "text": "Substrate Composition",
+      "page": 22
+    },
+    {
+      "level": "H1",
+      "text": "Results",
+      "page": 23
+    },
+    {
+      "level": "H2",
+      "text": "Sediment and Water Physico-Chemistry",
+      "page": 23
+    },
+    {
+      "level": "H3",
+      "text": "Sediment",
+      "page": 23
+    },
+    {
+      "level": "H3",
+      "text": "Water Column Physico-Chemistry",
+      "page": 23
+    },
+    {
+      "level": "H2",
+      "text": "Aquatic Macrophytes",
+      "page": 24
+    },
+    {
+      "level": "H3",
+      "text": "Aquatic Macrophyte Community Dynamics",
+      "page": 24
+    },
+    {
+      "level": "H3",
+      "text": "the two dominant species in the outlet arm were Elodea spp. and r. crispus (each comprising",
+      "page": 24
+    },
+    {
+      "level": "H2",
+      "text": "Drawdown Regime Analysis",
+      "page": 25
+    },
+    {
+      "level": "H2",
+      "text": "Community Composition and Diversity",
+      "page": 25
+    },
+    {
+      "level": "H2",
+      "text": "Substrate Coml!osition",
+      "page": 26
+    },
+    {
+      "level": "H2",
+      "text": "Discussion",
+      "page": 27
+    },
+    {
+      "level": "H2",
+      "text": "Sediment and Water Physico-Chemistry",
+      "page": 27
+    },
+    {
+      "level": "H3",
+      "text": "Sediment",
+      "page": 27
+    },
+    {
+      "level": "H2",
+      "text": "Water Column Physico-Chemistry",
+      "page": 28
+    },
+    {
+      "level": "H1",
+      "text": "Aquatic Macrophytes",
+      "page": 29
+    },
+    {
+      "level": "H3",
+      "text": "Aquatic Macrophyte Community Dynamics",
+      "page": 29
+    },
+    {
+      "level": "H2",
+      "text": "Drawdown Regime Analysis",
+      "page": 30
+    },
+    {
+      "level": "H2",
+      "text": "Community Composition and Diversity",
+      "page": 31
+    },
+    {
+      "level": "H2",
+      "text": "Substrate Com}!osition",
+      "page": 34
+    },
+    {
+      "level": "H2",
+      "text": "Ecological and Management Implications",
+      "page": 36
+    },
+    {
+      "level": "H2",
+      "text": "Development of the Exotic Myriophyllum spicatum",
+      "page": 38
+    },
+    {
+      "level": "H2",
+      "text": "Summary",
+      "page": 39
+    },
+    {
+      "level": "H2",
+      "text": "References",
+      "page": 41
+    },
+    {
+      "level": "H3",
+      "text": ". 197 5b.  The  use  of  overwinter  draw  down  for  aquatic  vegetation  management.",
+      "page": 43
+    }
+  ]
+}
