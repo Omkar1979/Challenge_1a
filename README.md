@@ -17,8 +17,8 @@ Challenge_1a/
 │   ├── outputs/                  # Sample outputs (optional for local testing)
 │   └── schema/
 │       └── output_schema.json    # JSON schema to validate outputs
-├── heading_classifier_trained_final5pdf_new.joblib
-├── heading_label_encoder_5pdf.joblib
+├── my_model.joblib
+├── my_encoder.joblib
 ├── process_pdfs.py              # Main PDF processing script
 ├── validate_output.py           # Output schema validation script
 ├── Dockerfile
@@ -36,8 +36,8 @@ Challenge_1a/
   - X-position, presence of digits/colons, heading keywords
 
 - **Model Files**:
-  - `heading_classifier_trained_final5pdf_new.joblib`
-  - `heading_label_encoder_5pdf.joblib`
+  - `my_model.joblib`
+  - `my_encoder.joblib`
 
 ---
 
