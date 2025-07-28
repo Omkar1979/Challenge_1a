@@ -6,18 +6,7 @@ Build a Dockerized, **offline-capable**, and **CPU-only** solution that extracts
 
 ---
 
-##  Pipeline Overview
 
-```mermaid
-graph TD
-    A[Start] --> B{Is it a heading?}
-    B -->|Yes| C[H1 / H2 / H3]
-    B -->|No| D[Ignore line]
-    C --> E[Write to JSON]
-    D --> E
-
-
----
 
 ##  Directory Structure
 
