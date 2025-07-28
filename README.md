@@ -10,13 +10,12 @@ Build a Dockerized, **offline-capable**, and **CPU-only** solution that extracts
 
 ```mermaid
 graph TD
-    A[PDF Input] --> B[Text + Visual Feature Extraction]
-    B --> C[Feature Vector Generation]
-    C --> D[Heading Prediction (RandomForest)]
-    D --> E[Heuristic Filtering (H3 cleanup, font size threshold)]
-    E --> F[Post-processing (merge lines, validate hierarchy)]
-    F --> G[JSON Output]
-```
+    A[Start] --> B{Is it a heading?}
+    B -->|Yes| C[H1 / H2 / H3]
+    B -->|No| D[Ignore line]
+    C --> E[Write to JSON]
+    D --> E
+
 
 ---
 
