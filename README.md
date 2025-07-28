@@ -1,97 +1,112 @@
-# Challenge 1A: PDF Outline Extractor using Machine Learning
+# 📘 Challenge 1A: PDF Outline Extractor using Machine Learning
 
 ## 🔍 Objective
 
-Build a Dockerized, offline-capable solution that extracts structured outlines (headings: H1, H2, H3) from PDF documents using a machine learning model trained on visual and layout features. The output is a JSON file matching the provided schema.
+Build a Dockerized, **offline-capable**, and **CPU-only** solution that extracts structured outlines (`H1`, `H2`, `H3`) from PDF documents using a machine learning model trained on visual and layout features. The extracted outline is saved as a JSON file.
 
 ---
 
-##  Directory Structure
+## 🧠 Pipeline Overview
+
+```mermaid
+graph TD
+    A[PDF Input] --> B[Text + Visual Feature Extraction]
+    B --> C[Feature Vector Generation]
+    C --> D[Heading Prediction (RandomForest)]
+    D --> E[Heuristic Filtering (H3 cleanup, font size threshold)]
+    E --> F[Post-processing (merge lines, validate hierarchy)]
+    F --> G[JSON Output]
+```
+
+---
+
+## 🗂️ Directory Structure
 
 ```
 Challenge_1a/
-├── input/                        # Input PDFs (mounted as /app/input)
-├── output/                       # Output JSONs (mounted as /app/output)
+├── input/                         # Input PDFs (mounted as /app/input)
+├── output/                        # Output JSONs (mounted as /app/output)
+├── model.joblib                   # Trained RandomForest model
+├── encoder.joblib                 # LabelEncoder for heading levels
+├── process_pdfs.py                # PDF outline extraction script
+├── Dockerfile                     # Dockerfile for containerization
 ├── sample_dataset/
-│   ├── pdfs/                     # Alternate test PDFs
-│   ├── outputs/                  # Sample outputs (optional for local testing)
+│   ├── pdfs/                      # Optional sample PDFs
+│   ├── outputs/                   # Optional sample outputs
 │   └── schema/
-│       └── output_schema.json    # JSON schema to validate outputs
-├── my_model.joblib
-├── my_encoder.joblib
-├── process_pdfs.py              # Main PDF processing script
-├── validate_output.py           # Output schema validation script
-├── Dockerfile
+│       └── output_schema.json     # Output schema definition (optional)
 └── README.md
 ```
 
 ---
 
-##  Machine Learning Model
+## 🤖 Model Information
 
-- **Model Type**: RandomForestClassifier (scikit-learn)
-- **Features Used**:
+- **Type**: RandomForestClassifier (from scikit-learn)
+- **Input Features**:
   - Font size, bold, italic, centered
-  - Capital ratio, font size rank, number of words
-  - X-position, presence of digits/colons, heading keywords
-
+  - X/Y position
+  - Font size ratio/z-score
+  - Character/word counts
+  - Capitalization ratio
 - **Model Files**:
-  - `my_model.joblib`
-  - `my_encoder.joblib`
+  - `model.joblib`
+  - `encoder.joblib`
 
 ---
 
-##  Dependencies
+## 📦 Dependencies
 
-- PyMuPDF (fitz)
+- PyMuPDF (`fitz`)
 - pandas
 - scikit-learn
 - joblib
-- jsonschema (for validation)
+- jsonschema *(only for optional schema validation)*
 
-Install manually (optional for local runs):
+> To install locally (optional):
 ```bash
 pip install PyMuPDF pandas scikit-learn joblib jsonschema
 ```
 
 ---
 
-##  Running the Solution with Docker
+## 🐳 Docker Instructions
 
-### Step 1: Place your PDFs
+### 1️⃣ Build the Docker Image
 
-Place all test files inside the root-level `input/` directory.
-
-### Step 2: Build the Docker Image
+Make sure you are in the `Challenge_1a` folder and run:
 
 ```bash
 docker build --platform linux/amd64 -t pdfextractor:omkarbhongale25 .
 ```
 
-### Step 3: Run the Docker Container
+### 2️⃣ Run the Container
 
-```bash
+**For PowerShell (Windows):**
+```powershell
 docker run --rm `
-  -v ${PWD}/input:/app/input:ro `
-  -v ${PWD}/output:/app/output `
+  -v ${PWD}\input:/app/input:ro `
+  -v ${PWD}\output:/app/output `
   --network none `
   pdfextractor:omkarbhongale25
-
 ```
 
-
+**For Linux/macOS (bash):**
+```bash
+docker run --rm   -v $(pwd)/input:/app/input:ro   -v $(pwd)/output:/app/output   --network none   pdfextractor:omkarbhongale25
+```
 
 ---
 
-##  Output Format
+## 🧾 Output Format
 
-Each PDF will generate a corresponding `.json` in `/app/output` with this structure:
+Each processed PDF creates a `.json` file in `/app/output` with this structure:
 
 ```json
 {
-  "title": "filename.pdf",
+  "title": "example.pdf",
   "outline": [
-    { "level": "H1", "text": "Chapter 1: Introduction", "page": 1 },
+    { "level": "H1", "text": "1. Introduction", "page": 1 },
     { "level": "H2", "text": "1.1 Background", "page": 2 },
     { "level": "H3", "text": "1.1.1 Early Work", "page": 2 }
   ]
@@ -100,31 +115,66 @@ Each PDF will generate a corresponding `.json` in `/app/output` with this struct
 
 ---
 
-##  Validating Output (Optional)
+## 🧪 Sample Output
 
-Run this to verify that the output matches the required schema:
+**For `test_pdf.pdf`**:
+```json
+{
+  "title": "test_pdf.pdf",
+  "outline": [
+    { "level": "H1", "text": "Introduction to AI", "page": 1 },
+    { "level": "H2", "text": "1.1 Historical Background", "page": 1 },
+    { "level": "H3", "text": "1.1.1 Turing's Contribution", "page": 2 },
+    { "level": "H1", "text": "Conclusion", "page": 5 }
+  ]
+}
+```
+
+---
+
+## 🧩 Constraints Satisfied
+
+| Constraint                            | Status   |
+|--------------------------------------|----------|
+| Offline execution                    |  Yes   |
+| CPU-only                             |  Yes   |
+| Dockerized                           |  Yes   |
+| Image size under 1 GB                |  Yes   |
+| No internet access (`--network none`)|  Yes   |
+| Processes 3–5 PDFs within 60 seconds |  Yes   |
+| Outputs structured JSON per PDF      |  Yes   |
+
+---
+
+
+
+## 🧪 Optional Validation
+
+To verify the generated outputs against the schema:
 
 ```bash
 python validate_output.py
 ```
 
-> Ensure `output_schema.json` is present at: `sample_dataset/schema/output_schema.json`
+Make sure `output_schema.json` is located at:
+```
+sample_dataset/schema/output_schema.json
+```
 
 ---
 
-##  Adobe Challenge Compliance
+## 🔮 Future Improvements
 
--  Model size under 200MB
--  CPU-only, Docker-ready
--  No network access required
--  Processes all PDFs from `/app/input`
--  Outputs JSON per PDF in `/app/output`
--  Schema conformance via `output_schema.json`
--  Runs under 60s for 50-page PDFs
+- Use `Tesseract OCR` to handle scanned PDFs (image-based)
+- Fine-tune model with more samples including:
+  - Nested outlines
+  - PDFs with tables of contents
+- Switch to `LightGBM` or `XGBoost` for smaller model size
+-  layout-aware embeddings like `LayoutLM` if GPU allowed
 
 ---
 
-##  Author
+## 👨‍💻 Author
 
-Omkar bhongale  
-Adobe India Hackathon 2025 — Challenge 1A Submission
+**Omkar Bhongale**  
+Submission for **Adobe India Hackathon 2025 — Challenge 1A**
