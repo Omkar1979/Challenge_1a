@@ -1,12 +1,12 @@
-# 📘 Challenge 1A: PDF Outline Extractor using Machine Learning
+# Challenge 1A: PDF Outline Extractor using Machine Learning
 
-## 🔍 Objective
+##  Objective
 
 Build a Dockerized, **offline-capable**, and **CPU-only** solution that extracts structured outlines (`H1`, `H2`, `H3`) from PDF documents using a machine learning model trained on visual and layout features. The extracted outline is saved as a JSON file.
 
 ---
 
-## 🧠 Pipeline Overview
+##  Pipeline Overview
 
 ```mermaid
 graph TD
@@ -20,7 +20,7 @@ graph TD
 
 ---
 
-## 🗂️ Directory Structure
+##  Directory Structure
 
 ```
 Challenge_1a/
@@ -40,7 +40,7 @@ Challenge_1a/
 
 ---
 
-## 🤖 Model Information
+## Model Information
 
 - **Type**: RandomForestClassifier (from scikit-learn)
 - **Input Features**:
@@ -55,7 +55,7 @@ Challenge_1a/
 
 ---
 
-## 📦 Dependencies
+##  Dependencies
 
 - PyMuPDF (`fitz`)
 - pandas
@@ -70,7 +70,7 @@ pip install PyMuPDF pandas scikit-learn joblib jsonschema
 
 ---
 
-## 🐳 Docker Instructions
+##  Docker Instructions
 
 ### 1️⃣ Build the Docker Image
 
@@ -98,7 +98,7 @@ docker run --rm   -v $(pwd)/input:/app/input:ro   -v $(pwd)/output:/app/output  
 
 ---
 
-## 🧾 Output Format
+##  Output Format
 
 Each processed PDF creates a `.json` file in `/app/output` with this structure:
 
@@ -115,7 +115,7 @@ Each processed PDF creates a `.json` file in `/app/output` with this structure:
 
 ---
 
-## 🧪 Sample Output
+##  Sample Output
 
 **For `test_pdf.pdf`**:
 ```json
@@ -132,7 +132,7 @@ Each processed PDF creates a `.json` file in `/app/output` with this structure:
 
 ---
 
-## 🧩 Constraints Satisfied
+##  Constraints Satisfied
 
 | Constraint                            | Status   |
 |--------------------------------------|----------|
@@ -148,7 +148,7 @@ Each processed PDF creates a `.json` file in `/app/output` with this structure:
 
 
 
-## 🧪 Optional Validation
+##  Optional Validation
 
 To verify the generated outputs against the schema:
 
